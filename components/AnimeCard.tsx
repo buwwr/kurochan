@@ -1,10 +1,13 @@
+"use client";
+
 import { useWatchlist } from "@/hooks";
 import Link from "next/link";
 import { useAuth } from "@/hooks/useAuth";
 import { AnimeCardProps } from "@/types";
+import { useRouter } from "next/navigation";
 
 export function AnimeCard({anime}: AnimeCardProps) {
-  const { userId } = useAuth();
+  const { user, userId } = useAuth();
   const {
     watchlist, 
     addToWatchlist, 
@@ -15,7 +18,9 @@ export function AnimeCard({anime}: AnimeCardProps) {
   } = useWatchlist(userId);
 
   const alreadyAdded = isInWatchlist(anime.mal_id);
-  const watchlistItem = watchlist.find(item => item.mal_id === anime.mal_id)
+  const watchlistItem = watchlist.find(item => item.mal_id === anime.mal_id);
+
+  const router = useRouter();
   
   return (
     <div className="flex flex-col gap-2 py-2">
@@ -52,8 +57,14 @@ export function AnimeCard({anime}: AnimeCardProps) {
       </Link>
 
       <button
+        
         onClick={ (e) => {
           e.stopPropagation()   // button click doesn't navigate 
+
+          if (!user) {
+            router.push("/login")
+            return
+          }
 
           if (alreadyAdded) {
             watchlistItem?.id && deleteFromWatchlist(watchlistItem.id);
@@ -79,6 +90,7 @@ export function AnimeCard({anime}: AnimeCardProps) {
         disabled={addingToWatchlist || deletingFromWatchlist}
         className="rounded border px-4 py-2 text-sm disabled:opacity-50"
       >
+        {!user && <Link href="/login?redirect="></Link>}
         {alreadyAdded ? 
           deletingFromWatchlist ? "Deleting..." : "Delete"
           : addingToWatchlist ? "Adding..." : "Add"}

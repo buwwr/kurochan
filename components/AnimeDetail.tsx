@@ -30,7 +30,7 @@ export function AnimeDetail({ id }: { id: number }) {
             <img
               src={animeById?.images_webp_lg_url}
               alt={animeById?.title_default}
-              className="w-48 lg:w-56 rounded-2xl shadow-2xl border-4 border-white object-cover aspect-[2/3]"
+              className="w-48 lg:w-56 rounded-2xl shadow-2xl border-4 border-white object-cover aspect-2/3"
             />
           </div>
 
