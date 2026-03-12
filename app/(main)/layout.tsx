@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import "@/app/globals.css";
-import QueryProvider from "@/lib/QueryProvider";
+import { NavBar } from "@/components";
 
 export const metadata: Metadata = {
   title: "KUROCHAN",
@@ -13,12 +12,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className="font-sans">
-        <QueryProvider>
-          {children}
-        </QueryProvider>
-      </body>
-    </html>
-  );
-}
+    <div className={`relative flex flex-col h-screen max-h-[56.25vw] font-sans`}>
+      <NavBar />
+      <main className="absolute inset-0 z-10 h-full">
+        {children}
+      </main>
+    </div>
+  )
+};
