@@ -1,3 +1,5 @@
+"use client";
+
 export function PageLoading() {
   return (
     <div className="fixed inset-0 z-50 bg-zinc-100 flex items-center justify-center min-h-screen">

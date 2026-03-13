@@ -11,8 +11,6 @@ export function NavBar() {
   const { user, isLoading } = useAuth();
   const pathname = usePathname();
 
-  if (isLoading) return <PageLoading />;
-
   return (
   <nav className="absolute top-0 left-0 right-0 z-100 backdrop-blur-md bg-white/60 border-b border-zinc-100">
     <div className="max-w-[1220px] mx-auto px-6 py-4 flex items-center justify-between">
