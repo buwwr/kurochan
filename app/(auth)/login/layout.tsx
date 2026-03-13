@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { NavBarLogin } from "@/components";
+import { NavBarLogin } from "@/app/components";
 
 export const metadata: Metadata = {
   title: "KUROCHAN Login ",

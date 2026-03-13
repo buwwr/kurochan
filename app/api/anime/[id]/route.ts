@@ -1,4 +1,4 @@
-import { JIKAN_API_BASE_URL } from "@/lib/constants";
+import { JIKAN_API_BASE_URL } from "@/app/lib/constants";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(

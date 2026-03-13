@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
-import { NavBar } from "@/components";
+import { NavBar } from "@/app/components";
+import MainPageLoading from "./loading";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "KUROCHAN",
@@ -13,10 +15,13 @@ export default function RootLayout({
 }>) {
   return (
     <div className={`relative flex flex-col h-screen max-h-[56.25vw] font-sans`}>
-      <NavBar />
-      <main className="absolute inset-0 z-10 h-full">
-        {children}
-      </main>
+      <Suspense fallback={<MainPageLoading />} >
+        <NavBar />
+        <main className="absolute inset-0 z-10 h-full">
+          {children}
+        </main>
+      </Suspense>
+      
     </div>
   )
 };

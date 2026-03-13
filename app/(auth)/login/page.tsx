@@ -1,8 +1,8 @@
 "use client"
 
 import { useRouter } from "next/navigation";
-import { supabase } from "@/lib/supabase";
-import { Button } from "@/components/ui";
+import { supabase } from "@/app/lib/supabase/supabase";
+import { Button } from "@/app/components/ui";
 
 export default function LoginPage() {
   const router = useRouter();

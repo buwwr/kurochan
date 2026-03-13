@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "@/app/globals.css";
-import QueryProvider from "@/lib/QueryProvider";
+import QueryProvider from "@/app/lib/QueryProvider";
 
 export const metadata: Metadata = {
   title: "KUROCHAN",

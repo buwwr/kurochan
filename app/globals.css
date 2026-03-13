@@ -5,4 +5,5 @@
   --font-sans: 'Nunito', sans-serif;
   --color-primary: var(--color-pink-400);    /* violet */
   --color-secondary: var(--color-blue-400);
+  --color-skeleton: var(--color-zinc-200);
 }

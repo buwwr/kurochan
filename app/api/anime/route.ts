@@ -1,11 +1,14 @@
-import { JIKAN_API_BASE_URL } from "@/lib/constants";
+import { JIKAN_API_BASE_URL } from "@/app/lib/constants";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const page = searchParams.get('page') ?? '1';
 
-  const res = await fetch(`${JIKAN_API_BASE_URL}/anime?order_by=mal_id&sort=asc&page=${page}`);
+  const res = await fetch(`${JIKAN_API_BASE_URL}/anime?order_by=mal_id&sort=asc&page=${page}`, {
+    next: { revalidate: 3600 }
+  })
+    ;
 
   if (!res.ok) return NextResponse.json(
     {

@@ -1,12 +1,11 @@
 "use client";
 
-import heroRight from "@/assets/images/hero-right.png";
-import hero from "@/assets/images/hero.png"
-import { Button } from "@/components/ui";
+import heroRight from "@/app/assets/images/hero-right.png";
+import hero from "@/app/assets/images/hero.png"
+import { Button } from "@/app/components/ui";
 import Link from "next/link";
 
 export default function Home() {
-
   return (
     <header className="relative h-full">
       <picture className="absolute inset-0">
