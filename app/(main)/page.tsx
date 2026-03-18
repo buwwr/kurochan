@@ -3,19 +3,29 @@
 import heroRight from "@/app/assets/images/hero-right.png";
 import hero from "@/app/assets/images/hero.png"
 import { Button } from "@/app/components/ui";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
   return (
     <header className="relative h-full">
-      <picture className="absolute inset-0">
-        <source media="(min-width: 1024px)" srcSet={heroRight.src} />
-        <img
-          src={hero.src}
-          alt="Hero"
-          className="w-full h-full object-cover object-center"
-        />
-      </picture>
+      {/* Hero for smaller screen */}
+      <Image 
+        src={hero}
+        alt="Hero"
+        fill
+        className="absolute inset-0 object-cover object-center lg:hidden"
+        priority
+      />
+      
+      {/* Hero for larger screen */}
+      <Image 
+        src={heroRight}
+        alt="Hero"
+        fill
+        className="absolute inset-0 object-cover object-center lg:block"
+        priority
+      />
       
       <div className="relative z-10 pt-20 md:pt-0 px-6 py-4 flex flex-col items-center lg:items-start justify-center h-full
         bg-white/90 lg:bg-transparent

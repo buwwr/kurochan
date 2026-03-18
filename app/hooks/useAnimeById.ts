@@ -5,7 +5,7 @@ import { useQuery } from "@tanstack/react-query"
 
 export const useAnimeById = (id: number) => {
   const animeById = useQuery({
-    queryKey: ["anime"],
+    queryKey: ["anime", id],
     queryFn: () => animeService.getById(id)
   })
 
