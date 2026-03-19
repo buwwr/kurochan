@@ -1,14 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { AuthButton, PageLoading, SearchBar } from "@/app/components";
+import { AuthButton } from "@/app/components";
 import { Button } from "./ui";
 import { useAuth } from "@/app/hooks";
 import { usePathname } from "next/navigation";
 
 
 export function NavBar() {
-  const { user, isLoading } = useAuth();
+  const { user } = useAuth();
   const pathname = usePathname();
 
   return (
